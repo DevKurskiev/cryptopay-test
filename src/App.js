@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "./components/molecules/Header";
 import Main from "./components/molecules/Main";
 import ThemeContext from "./context";
-import { LightGlobalStyle, DarkGlobalStyle } from "./globalStyles";
+import { GlobalStyle } from "./globalStyles";
 
 const { Provider } = ThemeContext;
 
@@ -12,7 +12,7 @@ function App() {
 
   return (
     <Provider value={{ theme, setTheme }} className="App">
-      {theme === "light" ? <LightGlobalStyle /> : <DarkGlobalStyle />}
+      <GlobalStyle dark={theme === "dark"} />
       <Header />
       <Main />
     </Provider>

@@ -24,11 +24,7 @@ function Header() {
   const { theme, setTheme } = useContext(ThemeContext);
 
   const handleChangeTheme = () => {
-    if (theme === "light") {
-      setTheme("dark");
-    } else {
-      setTheme("light");
-    }
+    setTheme(theme === "light" ? "dark" : "light");
   };
 
   return (

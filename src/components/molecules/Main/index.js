@@ -61,7 +61,7 @@ function Main() {
         </MainSubTitle>
       </MainItem>
       <MainItem>
-        <img src={theme === "dark" ? darkMockup : lightMockup} />
+        <img alt="" src={theme === "dark" ? darkMockup : lightMockup} />
       </MainItem>
     </MainContainer>
   );
