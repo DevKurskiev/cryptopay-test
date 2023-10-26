@@ -1,24 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+
+import Header from "./components/molecules/Header";
+import Main from "./components/molecules/Main";
+import ThemeContext from "./context";
+import { LightGlobalStyle, DarkGlobalStyle } from "./globalStyles";
+
+const { Provider } = ThemeContext;
 
 function App() {
+  const [theme, setTheme] = useState("light");
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider value={{ theme, setTheme }} className="App">
+      {theme === "light" ? <LightGlobalStyle /> : <DarkGlobalStyle />}
+      <Header />
+      <Main />
+    </Provider>
   );
 }
 
